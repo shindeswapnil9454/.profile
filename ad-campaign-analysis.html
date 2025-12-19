@@ -11,51 +11,105 @@
       background: #f4f6f8;
       margin: 0;
       color: #2c2c2c;
+      line-height: 1.6;
     }
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 40px auto;
       background: #ffffff;
       padding: 45px;
       border-radius: 8px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
-    a {
-      color: #0b5ed7;
-      text-decoration: none;
-      font-weight: 500;
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
     }
-    ul { padding-left: 22px; }
+    .navbar a {
+      text-decoration: none;
+      margin-right: 18px;
+      color: #0b5ed7;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+    h3 {
+      margin-top: 30px;
+      font-size: 20px;
+    }
+    ul {
+      padding-left: 22px;
+    }
+    .section {
+      margin-top: 30px;
+    }
+    .footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
 
-    <a href="index.html">← Back to Home</a>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div><strong>Swapnil Shinde</strong></div>
+      <div>
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="SWAPNIL_SHINDE-AWS.pdf" download>Resume</a>
+      </div>
+    </div>
 
     <h1>Advertising & Ad Campaign Analysis</h1>
 
-    <h3>Problem</h3>
-    <p>Marketing teams needed a unified view of campaign performance across regions.</p>
+    <div class="section">
+      <h3>Problem</h3>
+      <p>
+        Marketing teams lacked consolidated visibility into ad campaign
+        performance across channels and regions.
+      </p>
+    </div>
 
-    <h3>Approach</h3>
-    <ul>
-      <li>Aggregated multi-channel ad data</li>
-      <li>Calculated CPC, CTR, ROI using SQL</li>
-      <li>Validated cost vs revenue metrics</li>
-    </ul>
+    <div class="section">
+      <h3>Approach</h3>
+      <ul>
+        <li>Integrated multi-channel ad and affiliate data</li>
+        <li>Computed CPC, CTR, ROI, cost, and revenue metrics using SQL</li>
+        <li>Validated performance data for anomalies and consistency</li>
+      </ul>
+    </div>
 
-    <h3>Tools Used</h3>
-    <ul>
-      <li>SQL</li>
-      <li>Python</li>
-      <li>AWS</li>
-      <li>Power BI</li>
-    </ul>
+    <div class="section">
+      <h3>Tools Used</h3>
+      <ul>
+        <li>SQL</li>
+        <li>Python</li>
+        <li>AWS</li>
+        <li>Power BI</li>
+      </ul>
+    </div>
 
-    <h3>Impact</h3>
-    <p>Enabled data-driven budget allocation and campaign optimization.</p>
+    <div class="section">
+      <h3>Impact</h3>
+      <p>
+        Enabled data-driven budget optimization and improved marketing ROI
+        through actionable insights.
+      </p>
+    </div>
+
+    <div class="footer">
+      © 2025 Swapnil Shinde · Product Data Analyst
+    </div>
 
   </div>
 </body>
