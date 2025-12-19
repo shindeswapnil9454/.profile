@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Swapnil Shinde | Product Data Analyst</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     body {
@@ -12,6 +12,12 @@
       margin: 0;
       color: #2c2c2c;
       line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background: #0f172a;
+      color: #e5e7eb;
     }
 
     .container {
@@ -21,6 +27,66 @@
       padding: 45px;
       border-radius: 8px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    body.dark .container {
+      background: #020617;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      padding: 14px 25px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    body.dark .navbar {
+      background: #020617;
+    }
+
+    .logo {
+      font-weight: 600;
+      font-size: 16px;
+      color: #0b5ed7;
+    }
+
+    .navbar a {
+      margin-left: 18px;
+      text-decoration: none;
+      font-size: 14px;
+      color: #444;
+    }
+
+    body.dark .navbar a {
+      color: #cbd5f5;
+    }
+
+    .navbar a:hover,
+    .nav-link.active {
+      color: #0b5ed7;
+      font-weight: 600;
+    }
+
+    #themeToggle {
+      margin-left: 15px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background: #eef2f6;
+    }
+
+    body.dark #themeToggle {
+      background: #1e293b;
+      color: #fff;
     }
 
     /* HERO */
@@ -53,6 +119,10 @@
       margin-bottom: 10px;
     }
 
+    body.dark .title {
+      color: #cbd5f5;
+    }
+
     .resume-btn {
       display: inline-block;
       margin-top: 10px;
@@ -81,19 +151,18 @@
     }
 
     h2 {
-      margin-top: 40px;
+      margin-top: 50px;
       font-size: 22px;
       border-bottom: 2px solid #eaeaea;
       padding-bottom: 8px;
     }
 
-    ul {
-      padding-left: 22px;
-      margin-top: 12px;
+    body.dark h2 {
+      border-color: #1e293b;
     }
 
-    li {
-      margin-bottom: 10px;
+    ul {
+      padding-left: 22px;
     }
 
     .skills span {
@@ -105,38 +174,62 @@
       font-size: 14px;
     }
 
-    /* PILLARS */
-    .pillars {
+    body.dark .skills span {
+      background: #020617;
+      border: 1px solid #1e293b;
+    }
+
+    /* PROJECT CARDS */
+    .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+      gap: 25px;
+      margin-top: 30px;
     }
 
-    .pillar {
-      background: #f9fafb;
-      padding: 25px;
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .pillar h3 {
-      color: #0b5ed7;
-      margin-bottom: 10px;
-    }
-
-    .project-title a {
-      font-weight: 600;
-      color: #0b5ed7;
+    .project-card {
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 10px;
+      padding: 22px;
       text-decoration: none;
+      color: inherit;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+      transition: transform 0.25s, box-shadow 0.25s;
     }
 
-    .project-title a:hover {
-      text-decoration: underline;
+    body.dark .project-card {
+      background: #020617;
+      border-color: #1e293b;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      color: #0b5ed7;
+    }
+
+    .project-card span {
+      font-size: 12px;
+      background: #eef2f6;
+      padding: 4px 8px;
+      border-radius: 6px;
+      margin-right: 6px;
+      display: inline-block;
+      margin-top: 6px;
+    }
+
+    body.dark .project-card span {
+      background: #020617;
+      border: 1px solid #1e293b;
     }
 
     .footer {
-      margin-top: 50px;
+      margin-top: 60px;
       text-align: center;
       font-size: 13px;
       color: #777;
@@ -147,9 +240,22 @@
 <body>
   <div class="container">
 
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="logo">Swapnil Shinde</div>
+      <div>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="SWAPNIL_SHINDE-AWS.pdf" download class="nav-link">Resume</a>
+        <a href="https://github.com/shindeswapnil9454" target="_blank" class="nav-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/swapnil-shinde-05a7b849" target="_blank" class="nav-link">LinkedIn</a>
+        <button id="themeToggle">🌙</button>
+      </div>
+    </div>
+
     <!-- HERO -->
     <div class="hero">
-      <img src="Headshot.png" alt="Swapnil Shinde Headshot">
+      <img src="Headshot.png" alt="Swapnil Shinde" />
       <div>
         <h1>Swapnil Shinde</h1>
         <div class="title">Product Data Analyst</div>
@@ -162,66 +268,87 @@
     <div class="contact">
       📧 <a href="mailto:shinde.swapnil9454@gmail.com">shinde.swapnil9454@gmail.com</a>
       📞 +91 9423459354
-      💼 <a href="https://www.linkedin.com/in/swapnil-shinde-05a7b849" target="_blank">LinkedIn</a>
-      💻 <a href="https://github.com/shindeswapnil9454" target="_blank">GitHub</a>
     </div>
 
     <!-- SUMMARY -->
     <h2>Professional Summary</h2>
     <p>
       Product Data Analyst with 5+ years of experience delivering enterprise-scale datasets,
-      leading QA automation, analytics pipelines, and product insights using SQL, Python,
-      PySpark, and AWS.
+      building analytics pipelines, and driving product insights using SQL, Python, PySpark,
+      and AWS.
     </p>
 
-    <!-- PILLARS -->
-    <div class="pillars">
-      <div class="pillar">
-        <h3>Analyze</h3>
-        <p>SQL analytics across BigQuery, Snowflake, and Redshift.</p>
-      </div>
-      <div class="pillar">
-        <h3>Build</h3>
-        <p>Scalable pipelines using Python, PySpark, AWS, and MCP.</p>
-      </div>
-      <div class="pillar">
-        <h3>Visualize</h3>
-        <p>Executive dashboards using Power BI and Tableau.</p>
-      </div>
+    <!-- SKILLS -->
+    <h2>Skills & Technologies</h2>
+    <div class="skills">
+      <span>SQL</span><span>Python</span><span>PySpark</span><span>Power BI</span>
+      <span>Tableau</span><span>Advanced Excel</span>
+      <span>AWS</span><span>Snowflake</span><span>BigQuery</span>
+      <span>CRM Data</span><span>JIRA</span>
     </div>
 
     <!-- PROJECTS -->
-    <h2>Key Projects</h2>
+    <h2 id="projects">Key Projects</h2>
 
-    <div class="project-title">
-      <a href="ad-campaign-analysis.html">Advertising & Ad Campaign Analysis</a>
-    </div>
+    <div class="project-grid">
+      <a href="ad-campaign-analysis.html" class="project-card">
+        <h3>Advertising & Ad Campaign Analysis</h3>
+        <p>Campaign performance and ROI optimization.</p>
+        <span>SQL</span><span>Python</span><span>AWS</span>
+      </a>
 
-    <div class="project-title">
-      <a href="clickstream-analysis.html">Customer Insights via Clickstream Analysis</a>
-    </div>
+      <a href="clickstream-analysis.html" class="project-card">
+        <h3>Clickstream Analysis</h3>
+        <p>User journey and funnel analysis.</p>
+        <span>Python</span><span>SQL</span><span>AWS</span>
+      </a>
 
-    <div class="project-title">
-      <a href="crm-data-enrichment.html">CRM Data Analysis & Enrichment</a>
-    </div>
+      <a href="crm-data-enrichment.html" class="project-card">
+        <h3>CRM Data Enrichment</h3>
+        <p>Data quality, enrichment, and QA automation.</p>
+        <span>SQL</span><span>Python</span>
+      </a>
 
-    <div class="project-title">
-      <a href="high-volume-data-processing.html">
-        High-Volume Company & Contact Data Processing
+      <a href="high-volume-data-processing.html" class="project-card">
+        <h3>High-Volume Data Processing</h3>
+        <p>100M+ records processed using PySpark & AWS.</p>
+        <span>PySpark</span><span>AWS</span>
       </a>
     </div>
-
-    <!-- EDUCATION -->
-    <h2>Education</h2>
-    <ul>
-      <li>MBA — Symbiosis School for Online & Digital Learning (Pursuing)</li>
-      <li>B.Tech — MIT Aurangabad</li>
-    </ul>
 
     <div class="footer">
       © 2025 Swapnil Shinde · Product Data Analyst
     </div>
 
   </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    const toggle = document.getElementById("themeToggle");
+    toggle.onclick = () => {
+      document.body.classList.toggle("dark");
+      toggle.textContent =
+        document.body.classList.contains("dark") ? "☀️" : "🌙";
+    };
+
+    const sections = document.querySelectorAll("h2[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        if (pageYOffset >= section.offsetTop - 140) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
